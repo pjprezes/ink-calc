@@ -20,7 +20,7 @@
 
         <section id="tab1" class="tab-content active">
             <div class="card">
-                <label>Longitudinal DPI (X)</label>
+                <label>DPI (X)</label>
                 <select id="dpi">
                     <option value="400" selected>400</option>
                     <option value="600">600</option>
@@ -38,8 +38,8 @@
 
             <div class="result-area">
                 <div class="res-item">Frequency: <span id="freqResult">-</span></div>
-                <div class="res-item highlight">Lines (for 1 m²): <span id="linesResult">-</span></div>
-                <div class="res-item">Printing Time: <span id="timeResult">-</span></div>
+                <div class="res-item highlight">Lines for 1 m²: <span id="linesResult">-</span></div>
+                <div class="res-item">Spitting Time: <span id="timeResult">-</span></div>
             </div>
         </section>
 
@@ -56,9 +56,8 @@
 
                 <label>Drop Mode</label>
                 <select id="dropMode">
-                    <option value="1">1x (Binary)</option>
-                    <option value="2">2x (Greyscale)</option>
-                    <option value="3">3x (Greyscale)</option>
+                    <option value="1">1x (single drop)</option>
+                    <option value="3">3x (binary drop)</option>
                 </select>
 
                 <button class="btn-primary" id="calcDropBtn">CALCULATE VOLUME</button>
@@ -74,3 +73,4 @@
     <script src="app.js"></script>
 </body>
 </html>
+
