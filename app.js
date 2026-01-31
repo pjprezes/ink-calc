@@ -22,32 +22,35 @@ document.getElementById("calcDropBtn").addEventListener("click", calculateDrop);
 // 3. LOGIC CALCULATIONS
 function calculateDpi() {
     const DPI_X = Number(document.getElementById("dpi").value);
-    const DPI_Y = 400; // Fixed transverse resolution
-    const NOZZLES = 1024; // Nozzles per head
-    const speed = Number(document.getElementById("speed").value); // m/min
+    const speed = Number(document.getElementById("speed").value);
     const heads = Number(document.getElementById("heads").value);
+    const DPI_Y = 400; 
+    const NOZZLES = 1024;
 
-    // Calculate printing width in meters
+    // 1. OBLICZENIA (bez zmian)
     const widthMeters = (heads * NOZZLES / DPI_Y) * 0.0254;
-    // Length needed for 1 m2
     const lengthMeters = 1 / widthMeters;
-    // Total lines = Length in inches * Longitudinal DPI
     const totalLines = Math.round((lengthMeters * 39.3701) * DPI_X);
-
-    // Frequency (Hz)
     const speed_mm_s = (speed * 1000) / 60;
-    const pitch_mm = 25.4 / DPI_X;
-    const freq = speed_mm_s / pitch_mm;
-
-    // Printing Time (sec)
+    const freq = speed_mm_s / (25.4 / DPI_X);
     const time_s = lengthMeters / (speed / 60);
 
-    // OUTPUTS IN ENGLISH
-    document.getElementById("freqResult").innerText = `${freq.toFixed(1)} Hz`;
+    // 2. LOGIKA SAFETY GUARD (Dimatix StarFire + Waveform Limit)
+    // Limit: 400dpi * 40m/min = 16000
+    const maxSpeedForDpi = 16000 / DPI_X;
+    const freqElement = document.getElementById("freqResult");
+    
+    if (speed > maxSpeedForDpi) {
+        freqElement.style.color = "#ef4444"; // Czerwony alert
+        freqElement.innerText = `${freq.toFixed(1)} Hz - OVER LIMIT (Max: ${maxSpeedForDpi} m/min)`;
+    } else {
+        freqElement.style.color = "var(--accent)"; // Standardowy zielony
+        freqElement.innerText = `${freq.toFixed(1)} Hz - OK`;
+    }
+
+    // WYNIKI
     document.getElementById("linesResult").innerText = totalLines.toLocaleString();
     document.getElementById("timeResult").innerText = `${time_s.toFixed(2)} sec`;
-
-    // AUTOMATION: Transfer value to Step 2
     document.getElementById("lines").value = totalLines;
 }
 
@@ -78,3 +81,4 @@ function calculateDrop() {
     document.getElementById("binaryResult").innerText = `${(drop_pl * mode).toFixed(2)} pL`;
     document.getElementById("usageResult").innerText = `${weight.toFixed(3)} g/m²`;
 }
+
