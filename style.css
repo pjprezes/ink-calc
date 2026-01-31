@@ -1,0 +1,109 @@
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --primary: #3b82f6;
+    --accent: #10b981;
+    --text: #f1f5f9;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+}
+
+header h1 {
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+.dim { color: #94a3b8; font-weight: normal; }
+
+.tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background: #334155;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tab-btn.active { background: var(--primary); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: white;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.result-area {
+    margin-top: 20px;
+    padding: 15px;
+    background: #020617;
+    border-radius: 12px;
+}
+
+.res-item {
+    margin: 8px 0;
+    font-size: 0.9rem;
+}
+
+.res-item span { font-weight: bold; color: var(--accent); }
+
+.highlight span { font-size: 1.2rem; color: #fbbf24; }
