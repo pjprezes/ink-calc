@@ -15,62 +15,62 @@
 
 				<nav class="tabs">
 						<button class="tab-btn active" onclick="openTab(event, 'tab1')">DPI / LINIE</button>
-						<button class="tab-btn" onclick="openTab(event, 'tab2')">DROP</button>
+						<button class="tab-btn" onclick="openTab(event, 'tab2')">DROP VOLUME</button>
 				</nav>
 
         <section id="tab1" class="tab-content active">
             <div class="card">
-                <label>DPI Wzdłużne</label>
+                <label>DPI</label>
                 <select id="dpi">
                     <option value="400"selected>400</option>
                     <option value="600">600</option>
                     <option value="800">800</option>
                 </select>
 
-                <label>Prędkość [m/min]</label>
+                <label>Speed [m/min]</label>
                 <input id="speed" type="number" value="20">
 
-                <label>Liczba głowic (szerokość)</label>
+                <label>Number of heads</label>
                 <input id="heads" type="number" value="4">
 
-                <button class="btn-primary" id="calcDpiBtn">OBLICZ POWIERZCHNIĘ</button>
+                <button class="btn-primary" id="calcDpiBtn">CALCULATE THE AREA</button>
             </div>
 
             <div class="result-area">
-                <div class="res-item">Częstotliwość: <span id="freqResult">-</span></div>
-                <div class="res-item highlight">Linie (1 m²): <span id="linesResult">-</span></div>
-                <div class="res-item">Czas druku: <span id="timeResult">-</span></div>
+                <div class="res-item">Frequency: <span id="freqResult">-</span></div>
+                <div class="res-item highlight">Lines for 1 m²: <span id="linesResult">-</span></div>
+                <div class="res-item">Spitt time: <span id="timeResult">-</span></div>
             </div>
         </section>
 
         <section id="tab2" class="tab-content">
             <div class="card">
-                <label>Waga tuszu [g]</label>
+                <label>Ink weight [g]</label>
                 <input id="weight" type="number" step="0.001" placeholder="Wpisz wynik z wagi">
 
-                <label>Gęstość [kg/l lub g/cm³]</label>
+                <label>Density [kg/l lub g/cm³]</label>
                 <input id="density" type="number" step="0.001" value="1.444">
 
-                <label>Liczba linii (z kroku 1)</label>
+                <label>Number of lines (from step 1)</label>
                 <input id="lines" type="number">
 
-                <label>Tryb (liczba kropel)</label>
+                <label>Mode (number of drops)</label>
                 <select id="dropMode">
-                    <option value="1">1x (Binary)</option>
-                    <option value="2">2x (Greyscale)</option>
-                    <option value="3">3x (Greyscale)</option>
+                    <option value="1">1x (single drop)</option>
+                    <option value="3">3x (binary drop)</option>
                 </select>
 
-                <button class="btn-primary" id="calcDropBtn">WYLICZ OBJĘTOŚĆ</button>
+                <button class="btn-primary" id="calcDropBtn">CALCULATE VOLUME</button>
             </div>
 
             <div class="result-area">
-                <div class="res-item">Pojedyncza kropla: <span id="dropResult">-</span></div>
-                <div class="res-item highlight">Binarna: <span id="binaryResult">-</span></div>
-                <div class="res-item">Zużycie: <span id="usageResult">-</span></div>
+                <div class="res-item">A single drop: <span id="dropResult">-</span></div>
+                <div class="res-item highlight">Binary drop: <span id="binaryResult">-</span></div>
+                <div class="res-item">Consumption per m²: <span id="usageResult">-</span></div>
             </div>
         </section>
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
