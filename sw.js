@@ -1,4 +1,4 @@
-const CACHE_NAME = 'inkcalc-v1.1';
+const CACHE_NAME = 'inkcalc-v1.2';
 const ASSETS = [
   './',
   './index.html',
@@ -20,3 +20,4 @@ self.addEventListener('fetch', event => {
     caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
+
